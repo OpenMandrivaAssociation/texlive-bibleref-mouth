@@ -1,6 +1,6 @@
 Name:		texlive-bibleref-mouth
 Version:	25527
-Release:	1
+Release:	2
 Summary:	Consistent formatting of Bible references
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/bibleref-mouth
