@@ -3,7 +3,7 @@ Version:	25527
 Release:	2
 Summary:	Consistent formatting of Bible references
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/bibleref-mouth
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/bibleref-mouth
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.doc.r%{version}.tar.xz
