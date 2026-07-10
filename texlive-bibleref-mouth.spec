@@ -1,50 +1,27 @@
-Name:		texlive-bibleref-mouth
-Version:	25527
-Release:	2
+%global tl_name bibleref-mouth
+%global tl_revision 25527
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	Consistent formatting of Bible references
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/bibleref-mouth
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bibleref-mouth.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package allows Bible references to be formatted in a
-consistent way. It is similar to the bibleref package, except
-that the formatting macros are all purely expandable -- that
-is, they are all implemented in TeX's mouth. This means that
-they can be used in any expandable context, such as an argument
-to a \url command.
+The package allows Bible references to be formatted in a consistent way.
+It is similar to the bibleref package, except that the formatting macros
+are all purely expandable -- that is, they are all implemented in TeX's
+mouth. This means that they can be used in any expandable context, such
+as an argument to a \url command.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/bibleref-mouth/bibleref-mouth.sty
-%doc %{_texmfdistdir}/doc/latex/bibleref-mouth/README
-%doc %{_texmfdistdir}/doc/latex/bibleref-mouth/bibleref-mouth.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/bibleref-mouth/bibleref-mouth.dtx
-%doc %{_texmfdistdir}/source/latex/bibleref-mouth/bibleref-mouth.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
